@@ -1,0 +1,79 @@
+---
+title: "DMW notes"
+subtitle: 'Instructor: Deepak Sharma'
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# DataBase Management System (DBMS)
+
+- A software system for management of databases. Performing creation, manipulation, maintenance, destruction etc. operations on databases
+- Database: Store, manipulate and retrieve interrelated data.
+
+# Motivation
+#### File system can have redundancy and inconsistency
+
+- Data isolation : Only through single interface data can be accessed
+- Data integrity : Validates every data point
+- Data abstraction : Only relevant information is provided
+- Data independence : Users are free to use database as per permissions
+- Atomicity of operations : Either completes the transaction or not
+- Concurrency : Tasks can be done simultaneously
+- Security : Access is granted as per the level of authority
+
+# Relational data model
+
+- Relations are tables (There can be m relations)
+- Relation set R : $r_{1}, r_{2}, \dots, r_{m}$ $r_{i} \in R$
+- Relations are unordered (Order doesn't matter)
+- There can be n attributes ${1}, {2}, \dots, {n}$
+- Attributes are atomic
+- Attribute set A : $a_{1}, a_{2}, \dots, a_{n}$ $a_{i} \in A$
+
+# Relation schema
+
+- Rules to follow - Rules that any relation instance follows
+- $r \in R$
+- Tuple = Row = Relation instance = Record
+- Attribute = Column = Field
+
+# Relational algebra
+
+- Procedural language
+- Select, project, union, set difference, Cartesian product, rename
+- Uses propositional calculus expressions like $\neg$, $\lor$ and $\land$  
+- Attribute comparator $=$, $<$, $>$, $\le$, $\ge$
+
+# Keys
+
+- Used to identify unique tuples
+- Any superset of a key is a superkey
+- If roll no is unique then roll_no+city will also be unique
+
+#### Candidate key
+
+- Minimal superkey
+- Any subset is not a superkey anymore
+- Superset of candidate key is not candidate key
+
+#### Primary key
+
+- A relation can have multiple candidate keys
+- Primary and secondary keys are candidate keys
+- One of the candidate keys is designated as the primary (only 1) key
+- Remaining candidate keys become the secondary keys (Alternate).
+- If there is only one candidate key that becomes the primary key. Is it certain to have 1 candidate key
+
+#### Foreign key
+
+- A key is the primary key of a foreign relation.
+
+
+
