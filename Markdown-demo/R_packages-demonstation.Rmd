@@ -1,0 +1,76 @@
+---
+title: "How to create and host your own R package on GitHub"
+output: github_document
+---
+
+
+## Statools
+##### Written by Deepak Sharma (https://deep-bits.github.io/)
+
+This web page provides a tutorial to create and host your own R package. This is only for educational purpose. You are free to use it as per `LICENSE` conditions.
+
+Find the attached `statools` directory as source code. You may download it and you can make changes in it. You are free to upload it as your own package and host it on GitHub.
+
+##### Steps to follow (Recommended configuration and nomenclature)
+
+1. Create a directory (Think of a proper package name)
+2. Set it as your working directory
+```
+setwd("E:/statools")
+```
+3. Create an R project (Use the package name)
+4. Create an R script (Use the package name here as well)
+5. Create an extension-less file with name `DESCRIPTION` and add following lines (Make changes if needed)
+```
+Package: statools
+Type: Package
+Title: Frequently used basic Statistics functions
+Version: 0.0.1
+Authors@R: person("Deepak", "Sharma", email = "Your_id@email.com", role = c("aut", "cre"))
+Description: This package provides functions to perform operation such as 
+mode identification, standardization & normalization on R vectors
+Depends: R (>= 3.1.0)
+License: GNU General Public License v3.0
+RoxygenNote: 7.2.1
+Encoding: UTF-8
+```
+6. Write following commands and edit documentation/function as per your requirements
+```
+#' Provides mode for a distribution vector
+#' @param dis_vec A distribution vector.
+#' @return mode_dis_vec A distribution vector.
+#' @examples
+#' Provides a single value if there is only one mode
+#' 
+#' modes(c(1,3,2,4,5,3)
+#' modes(c(1,2,3))
+#' 
+modes <- function(dis_vec) {
+    dis_vec_hist <- table(dis_vec)
+    mode_dis_vec <- as.numeric(names(dis_vec_hist)[dis_vec_hist == max(dis_vec_hist)])
+    return(mode_dis_vec)
+}
+```
+7. Put the R script/s in another sub-directory e.g. statools/R
+8. Run the following function (From your working directory)
+```
+# To call this function you need to have roxygen2 package in your R library
+roxygenise()
+```
+9. This will create markdown files for documentation in `man` folder.
+For better documentation edit the R source file. (Suggestion: Use VCS-SCM such as git)
+10. Once your source code is ready you can upload it on your GitHub repository
+11. Anyone who is interested in using your R function can do it using following R code
+```
+# You need to have devtools library installed to do so
+library(devtools)
+install_github("deep-bits/PFA/statools");
+```
+Welcome to the open-source world.
+```
+If you are using GitHub for some open-source softwares/library, then you can also contribute.
+
+```
+12. If you find a bug or have some suggestion, you may create an issue
+13. You may fork the repo and contribute for further development of this R package
+14. Significant contribution is appreciated

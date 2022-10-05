@@ -1,11 +1,8 @@
 ---
 title: "DMW notes"
 subtitle: 'Instructor: Deepak Sharma'
-date: "`r Sys.Date()`"
-output:
-  pdf_document: default
-  html_document:
-    df_print: paged
+date: "Date: `r Sys.Date()`"
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}

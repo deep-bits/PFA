@@ -1,0 +1,59 @@
+---
+title: "R_shiny_app_tutorial"
+date: "Date: `r Sys.Date()`"
+output: github_document
+---
+
+A Shiny app is just like any typical web application. It runs on a server and lets you interact via the user interface. In the minimalist version of any Shiny app there are 4 things to begin with.
+
+1.  Import Shiny R library
+
+2.  Define User interface
+
+3.  Define Server
+
+4.  Run Shiny application
+
+------------------------------------------------------------------------
+
+1.  The step one requires you to load shiny library.
+
+<!-- -->
+
+    library(shiny)
+
+2.  Call an R function that will render HTML code on client application (Web browser)
+
+<!-- -->
+
+    ui <- shiny's_html_generating_functioncall(
+        # Choose a layout
+        # Choose what to display in main panel & how to handle input
+        some_input_function("id_of_object","label","default_value"),
+        some_other_function("",...)
+    )
+
+3.  Define a server function that takes HTML input from user interface and shows HTML output on user interface
+
+<!-- -->
+
+    server <- function(input, output){
+        # Render some html output
+        # You can use exception handling here to handle inappropriate inputs
+    }
+
+4.  Run the Shiny app, by binding user interface with server functionality
+
+<!-- -->
+
+    shinyApp(ui, server)
+
+#### Once the server is up and running, you can publish your app and it will then be hosted so that others can use it.
+
+-   Visit the following link to have a demonstration of \# The app allows you to detect outliers with the help of boxplot
+
+    <https://deep-bits.github.io/R_shiny-demo.html>.
+
+-   The source code of this Shiny app is available at
+
+    <https://github.com/deep-bits/PFA/Shiny_app-demo/Outlier_detection_app.R>
