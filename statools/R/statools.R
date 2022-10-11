@@ -1,3 +1,17 @@
+#' Provides demean for a distribution vector
+#' @param dis_vec A distribution vector.
+#' @return demean_dis_vec A distribution vector.
+#' @examples
+#' demean_dist <- demean(c(1,3,2,4,5,3))
+#' demean_dist <- demean(c(1,2,3))
+#' @export
+
+demean <- function(dis_vec){
+    if (is.vector(dis_vec))
+        return(dis_vec-mean(dis_vec))
+}
+
+
 #' Provides mode for a distribution vector
 #' @param dis_vec A distribution vector.
 #' @return mode_dis_vec A distribution vector.
