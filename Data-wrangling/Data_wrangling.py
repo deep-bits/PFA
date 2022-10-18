@@ -1,9 +1,5 @@
 import pandas as pd
-
-data = {'Name': ['Vijay','Raveena','Parul','Paridhi','Pankaj','Sanjay','Aarti','Lokesh','Anukriti','Ankit'],
-         'Gender': ['M','F','F','F','M','M','F','M','F','M'],
-         'Marks':[23,64,34,76,,34,75,34,75,87]}
-         
+data = {'Name': ['Vijay','Raveena','Parul','Paridhi','Pankaj','Sanjay','Aarti','Lokesh','Anukriti','Ankit'], 'Gender': ['M','M','F','F','M','M','F','M','F','M'], 'Marks':[23,64,34,76,34,34,75,34,75,87]}
 data = pd.DataFrame(data)
 print(data)
 
