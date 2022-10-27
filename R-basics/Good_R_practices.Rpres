@@ -1,0 +1,136 @@
+R tutorials
+========================================================
+
+## Few good practices in R programming
+<br>
+<br>
+<br>
+<br>
+<br>
+
+Presented by : Deepak Sharma <br>
+[ Use arrow keys to go to prev/next page ]
+
+Few questions
+========================================================
+<br>
+ - Should you write code just to get your work done?
+ - Do you need to care for reusability?
+ - Do you write user friendly code as well as programmer friendly code?
+
+Which coding style looks best?
+========================================================
+All styles have same results, one is better other is best of all
+- Style 1
+```{r}
+a <- 10
+b <- 20
+c <- (10+20)/2
+c
+```
+Which coding style looks best?
+========================================================
+All styles have same results, one is better other is best of all
+- Style 2
+```{r}
+variable_number_1 <- 10 
+variable_number_2 <- 20
+third_variable <- mean(c(variable_number_1,variable_number_2))
+print(third_variable)
+```
+Which coding style looks best?
+========================================================
+All styles have same results, one is better other is best of all
+- Style 3
+```{r}
+# Add comments
+# Indent if it improves readability
+var1 <- 10  # First variable
+var2 <- 20  # Second variable
+# Calculate average value using standard mean() function
+average_value <- mean(c(var1,var2)) 
+# Display the average value properly
+cat('Mean value is : ',average_value) 
+```
+
+Writing an inefficient code
+========================================================
+<br>
+```{r eval=FALSE, warning=FALSE, include=TRUE}
+# Install a package everytime you run a script
+install.packages("nnet")
+# Import your package
+library(nnet)
+```
+Writing an efficient code
+========================================================
+<br>
+```{r eval=FALSE, warning=FALSE, include=TRUE}
+# Writing a robust code - a nice way to check & install a package
+load_pkgs <- c("e1071","caret")
+# Perform a for loop for each item in pkg list
+for (i in load_pkgs) 
+{
+    if(! (i %in% installed.packages())) # If package is not installed
+        install.packages(i) # Install the package
+    do.call('library',as.list(i)) # Load the library if already installed
+}
+```
+
+Keep your R version up-to-date
+========================================================
+<br>
+```{r eval=FALSE, warning=FALSE, include=TRUE}
+# To know the version of R which you are using
+version   
+# Automatically update your r version with the package installr
+library(installr)
+# Use updateR() function to update R
+updateR()
+```
+
+Do profiling
+========================================================
+<br>
+```{r echo=TRUE}
+numbers <- 1:10000000
+system.time({ # R is case sensitive ('System' is not equals to 'system')
+  total <- 0
+  for(i in numbers) # Iterative approach
+    total <- total + i
+  cat("Sum is : ",total,"\n")
+})
+```
+
+Do profiling
+========================================================
+<br>
+```{r echo=TRUE}
+# Try writing efficient programs (Save time)
+numbers <- 1:10000000
+system.time({ 
+  total <- 0
+  total <- sum(c(numbers))  # Vectorized code
+  cat("Sum is : ",total,"\n")
+})
+```
+
+Learn shortcuts - Save time
+========================================================
+<br>
+``` {r echo=TRUE}
+# Ctrl + Shift + C  # Comment selected lines
+# Ctrl + Shift + R  # Insert section
+# Ctrl + L  # Clear console
+rm(list=ls())   # Clear all workspace variables
+# Use an IDE such as RStudio
+cat('\f') # To clear your console
+# Press [`Alt` + `-`] to put <- or `assignment operator` in RStudio
+```
+
+Few useful links
+========================================================
+<br>
+- Official website for R <https://www.r-project.org/>
+- Official R studio website <https://www.rstudio.com/>
+- GitHub repositories <https://deep-bits.github.io/>

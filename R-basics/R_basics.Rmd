@@ -1,0 +1,66 @@
+---
+title: "Basics of R programming"
+output: github_document
+---
+
+### R version you are using
+
+```{r echo=TRUE, eval=TRUE}
+version
+```
+
+### Information about your session
+
+```{r echo=TRUE, eval=FALSE}
+sessionInfo()
+```
+
+### Locations where packages are installed
+
+```{r}
+.libPaths()
+```
+
+### Packages installed in library path/s
+
+```{r echo=TRUE, eval=FALSE}
+.packages(all.available = TRUE)
+```
+
+### Packages that you have loaded
+
+```{r}
+(.packages())
+```
+### Check package version
+
+```{r}
+packageVersion('stats')
+```
+
+### R Citation
+
+```{r}
+citation()
+```
+
+### R License
+
+```{r echo=TRUE}
+license()
+```
+
+
+### R's other functions
+
+```{r echo=TRUE, eval=FALSE}
+### demo(colors)            ### Check colors
+### help()                  ### Take help from R
+### help("rainbow")         ### Take help for R rainbow function
+### help.start()            ### First help page of R
+### q()                     ### Quit R
+### RShowDoc("COPYING")     ### R licenses
+### RShowDoc("GPL-3")
+### RShowDoc("LGPL-2.1")
+### RShowDoc("LGPL-3")
+```
