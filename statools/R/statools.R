@@ -1,3 +1,9 @@
+
+
+clear_plot <- function(){
+    while (!is.null(dev.list()))  dev.off() # Clear the plot window if some plot is already drawn
+}
+
 #' Provides demean for a distribution vector
 #' @param dis_vec A distribution vector.
 #' @return demean_dis_vec A distribution vector.

@@ -13,8 +13,6 @@ data[2,] <- iris$Sepal.Length[seq(1,5)]
 print(data)
 barplot(data, beside=T,col = c("dodgerblue2","tomato2"),
         xlim = c(0,15), ylim = c(0, 10))
-legend(c(10), c("Sepal Width","Sepal Length"), pch=20, 
-       col=c("dodgerblue2","tomato2"), 
-       bty="n")
+legend(x = 6, y = 10, c("Sepal Width","Sepal Length"), pch=17, col=c("blue","green"), bty="y")
 dev.off()
 

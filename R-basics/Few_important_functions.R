@@ -1,7 +1,7 @@
 #  Few important functions ------------------------------------------------
 
 # rep() - Replicate values
-c1 <- rep(1,5); # Write 1, 5 times equals to c(1,1,1,1,1)
+c1 <- rep(1,7); # Write 1, 5 times equals to c(1,1,1,1,1)
 str(c1)
 c2 <- c(1,1,1,1,1)
 str(c2)
@@ -29,6 +29,7 @@ rnorm(100)
 
 #Available datasets (For free)
 data(lynx)
+data("faithful")
 a <- lynx
 a <- Titanic
 a <- cars

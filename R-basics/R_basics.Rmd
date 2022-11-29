@@ -32,6 +32,7 @@ sessionInfo()
 ```{r}
 (.packages())
 ```
+
 ### Check package version
 
 ```{r}
@@ -49,7 +50,6 @@ citation()
 ```{r echo=TRUE}
 license()
 ```
-
 
 ### R's other functions
 

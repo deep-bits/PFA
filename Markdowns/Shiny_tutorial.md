@@ -1,0 +1,74 @@
+Shiny web application development - A tutorial
+================
+
+**A successful deployment of a Shiny web application requires following
+steps**
+
+1)  Up to date versions of R, R packages and RStudio
+
+2)  Required libraries need to be installed and loaded such as shiny,
+    rsconnect and other nice-to-have things such as devtools and RTools
+    etc.
+
+3)  You need to create an account on [Shinyapps.io](Shinyapps.io) where
+    you can host your Shiny web application — (*Publish*)
+
+4)  You may later choose to embed that web page address to your web page
+    using `html's` embed tag. — (*Optional*)
+
+    Example : <https://deep-bits.shinyapps.io/Outlier-detection> link is
+    where the shiny app is hosted. This web page URL can then be
+    embedded in some other `html` web page on your website.
+
+5)  You also need a valid `R` code which is able to run a Shiny web
+    application.  
+    An example for the same has been given below.
+
+**R code for an outlier detection application**
+
+``` r
+library(shiny)
+ui <- fluidPage(
+  titlePanel("Outlier detection from CSV file"),
+  sidebarLayout(
+    sidebarPanel(
+      fileInput("data_file", "Choose a valid CSV File",
+        multiple = FALSE,
+        accept = c("text/csv", "text/comma-separated-values,text/plain", ".csv")),
+      checkboxInput("header", "Header", TRUE),
+      textInput("coln", "Enter column no. in which outliers are to detected", "1")
+    ),
+    mainPanel(
+      plotOutput("boxplot")
+    )
+  )
+)
+server <- function(input, output) {
+  output$boxplot <- renderPlot({
+    req(input$data_file)
+    tryCatch(
+      {
+        dat_frm <- read.csv(input$data_file$datapath, header = input$header)
+        col_num <- as.numeric(input$coln)
+        boxplot(dat_frm[,col_num])
+      },
+      error = function(e) { stop(safeError(e)) }
+    )
+  })
+}
+shinyApp(ui, server)
+```
+
+------------------------------------------------------------------------
+
+**Summary** : Upon successful execution of this code, you will be
+running a shiny web application on your system (localhost). To allow
+others to use your app you need to host it on a web server.
+
+[Shinyapps.io](Shinyapps.io) allows you to publish your shiny web apps
+on its platform. You can publish the same by creating an account and by
+uploading your application on Shinyapps.io web server.
+
+Once it is up and running, you can copy the URL of the shiny web
+application and embed its URL in a web page of your website such as
+[deep-bits.github.io](deep-bits.github.io)
