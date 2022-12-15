@@ -1,6 +1,5 @@
 library("pdftools")
 library("magick")
-library("pdftools")
 library("tesseract")
 getwd()
 image_url <- "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/WMF_Support_and_Revenue%2C_Expenses_and_Net_Assets_at_Year_End.jpg/1218px-WMF_Support_and_Revenue%2C_Expenses_and_Net_Assets_at_Year_End.jpg"
@@ -28,16 +27,16 @@ plot(mod_img)
 
 cropped <- image_crop(mod_img, "+ 150 + 50")
 cropped <- image_crop(mod_img, "x 220")
-cropped <- image_crop(mod_img, "1200 x 220 + 100 + 0")
+cropped <- image_crop(mod_img, "400x 300+ 00 + 00")
 cropped %>% plot()
 appended <- image_append(c(mod_img,
     mod_img %>% 
-      image_crop("82 x 1250 + 60 + 0")
+      image_crop("75 x 1250 + 60 + 0")
     )
   )
 appended %>% plot()
 
-scaled <- image_scale(mod_img, "1218 x 1198")
+scaled <- image_scale(mod_img, "1218 x 1198!")
 scaled <- image_scale(mod_img, "x 1198")
 scaled %>% plot()
 scaled %>% image_info()
@@ -176,7 +175,7 @@ wiki %>%
 img_comb <- image_read('https://upload.wikimedia.org/wikipedia/commons/3/37/Clock.gif')
 img_comb %>% 
   image_scale("200x200") %>% 
-  image_animate(fps = 10, dispose = "previous")
+  image_animate(fps = 1, dispose = "previous")
 
 image_text <- image_read(image_url)
 class(image_text)
@@ -189,10 +188,16 @@ image_text %>%
 
 
 
-python <-  image_read_pdf('https://upload.wikimedia.org/wikipedia/commons/9/91/Python_Programming.pdf', density = 72)
+python <-  image_read_pdf('https://upload.wikimedia.org/wikipedia/commons/9/91/Python_Programming.pdf', density = 500)
 class(python)
 image_info(python)
 python[1]
 python[1] %>% 
   image_ocr() %>%
   cat
+
+eng <- tesseract("eng")
+setwd("~/GitHub/PFA/Image_manipulation")
+text <- tesseract::ocr("sample_text_image.png", engine = eng)
+results <- tesseract::ocr_data("sample_text_image.png", engine = eng)
+cat(text)
